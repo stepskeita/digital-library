@@ -18,9 +18,12 @@ const PopularBooks = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {BOOKS.map((book, i) => (
-          <div className=" rounded-xl shadow-md overflow-hidden">
-            <Link to="">
+        {BOOKS.map((book) => (
+          <div
+            key={book.title}
+            className=" rounded-xl shadow-md overflow-hidden"
+          >
+            <Link to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}>
               <img src={book.coverImage} alt={book.title} className="w-full" />
             </Link>
           </div>

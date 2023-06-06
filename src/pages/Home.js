@@ -13,10 +13,10 @@ const Home = () => {
         <div className="flex items-stretch w-full px-3">
           <input
             type="text"
-            className="flex-1 border border-black"
+            className="flex-1 border border-sky-500 border-r-0 focus:outline-none focus:border-none"
             placeholder="Search for title, author, category, keyword ..."
           />
-          <button className="bg-gray-300 text-black p-3 px-12 border border-black border-l-0 hover:bg-gray-100">
+          <button className="bg-sky-500 text-white p-3 px-12 border border-sky-500 hover:bg-sky-600">
             Search
           </button>
         </div>

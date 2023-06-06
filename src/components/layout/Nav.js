@@ -20,6 +20,12 @@ const Nav = () => {
           >
             Recently Added
           </button>
+          <button
+            onClick={() => history.push("/bookmarks")}
+            className="p-2 mx-2"
+          >
+            Bookmarks
+          </button>
         </div>
         <button className="p-2 mx-2">
           <FaSearch />
