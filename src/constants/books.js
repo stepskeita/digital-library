@@ -9,6 +9,7 @@ export const BOOKS = [
     keywords: ["surveillance", "totalitarianism", "thought control"],
     coverImage:
       "https://m.media-amazon.com/images/I/41aM4xOZxaL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Catcher in the Rye",
@@ -20,6 +21,7 @@ export const BOOKS = [
     keywords: ["alienation", "adolescence", "identity"],
     coverImage:
       "https://m.media-amazon.com/images/I/518dVCGFuhL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/2.pdf",
   },
   {
     title: "The Da Vinci Code",
@@ -31,6 +33,7 @@ export const BOOKS = [
     keywords: ["codes", "symbols", "conspiracy"],
     coverImage:
       "https://m.media-amazon.com/images/I/51J0Go2ZCNL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/3.pdf",
   },
   {
     title: "The Hobbit",
@@ -42,6 +45,7 @@ export const BOOKS = [
     keywords: ["quest", "fantasy world", "epic"],
     coverImage:
       "https://m.media-amazon.com/images/I/51B9ZIPwB9L._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/4.pdf",
   },
   {
     title: "To Kill a Mockingbird",
@@ -53,6 +57,7 @@ export const BOOKS = [
     keywords: ["racism", "justice", "Southern"],
     coverImage:
       "https://m.media-amazon.com/images/I/51IXWZzlgSL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/5.pdf",
   },
   {
     title: "Pride and Prejudice",
@@ -64,6 +69,7 @@ export const BOOKS = [
     keywords: ["love", "marriage", "social norms"],
     coverImage:
       "https://m.media-amazon.com/images/I/416K+gR7RLL._SY344_BO1,204,203,200_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Lord of the Rings",
@@ -75,6 +81,7 @@ export const BOOKS = [
     keywords: ["epic", "fantasy world", "quest"],
     coverImage:
       "https://m.media-amazon.com/images/I/41fx2jOQMfL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "Harry Potter and the Philosopher's Stone",
@@ -86,6 +93,7 @@ export const BOOKS = [
     keywords: ["magic", "adventure", "friendship"],
     coverImage:
       "https://m.media-amazon.com/images/I/51MnBaafASL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Hunger Games",
@@ -97,6 +105,7 @@ export const BOOKS = [
     keywords: ["survival", "oppression", "resistance"],
     coverImage:
       "https://m.media-amazon.com/images/I/51RpkO1J0lL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Fault in Our Stars",
@@ -108,6 +117,7 @@ export const BOOKS = [
     keywords: ["cancer", "love", "emotional"],
     coverImage:
       "https://m.media-amazon.com/images/I/51ED6WxFy8L._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "Brave New World",
@@ -119,6 +129,7 @@ export const BOOKS = [
     keywords: ["social control", "conformity", "dystopian society"],
     coverImage:
       "https://m.media-amazon.com/images/I/41j51mfaYkL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Girl with the Dragon Tattoo",
@@ -130,6 +141,7 @@ export const BOOKS = [
     keywords: ["crime", "investigation", "dark secrets"],
     coverImage:
       "https://m.media-amazon.com/images/I/51lmb+j6L4L._SY344_BO1,204,203,200_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Chronicles of Narnia",
@@ -141,6 +153,7 @@ export const BOOKS = [
     keywords: ["magic", "adventure", "good vs. evil"],
     coverImage:
       "https://m.media-amazon.com/images/I/51p1WxfBJAL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Kite Runner",
@@ -152,6 +165,7 @@ export const BOOKS = [
     keywords: ["friendship", "redemption", "cultural conflicts"],
     coverImage:
       "https://m.media-amazon.com/images/I/51vRNqL61aL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Book Thief",
@@ -163,6 +177,7 @@ export const BOOKS = [
     keywords: ["World War II", "books", "resilience"],
     coverImage:
       "https://m.media-amazon.com/images/I/41LuUlddrhL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Help",
@@ -173,6 +188,7 @@ export const BOOKS = [
     subCategories: ["Drama"],
     keywords: ["racial segregation", "discrimination", "courage"],
     coverImage: "https://m.media-amazon.com/images/I/51gN1WwZ4BL.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Giver",
@@ -183,6 +199,7 @@ export const BOOKS = [
     subCategories: ["Dystopia"],
     keywords: ["memory", "emotion", "dystopian society"],
     coverImage: "https://m.media-amazon.com/images/I/51BU9DLDmyL.jpg",
+    book: "../../books/1.pdf",
   },
   {
     title: "The Road",
@@ -193,5 +210,6 @@ export const BOOKS = [
     subCategories: ["Adventure"],
     keywords: ["survival", "father-son relationship", "desolation"],
     coverImage: "https://m.media-amazon.com/images/I/41EezCSkduL.jpg",
+    book: "../../books/1.pdf",
   },
 ];

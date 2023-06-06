@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import RecentlyAdded from "./pages/RecentlyAdded";
 import Book from "./pages/Book";
 import Bookmarks from "./pages/Bookmarks";
+import ReadBook from "./pages/ReadBook";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/recently-added" component={RecentlyAdded} />
         <Route exact path="/bookmarks" component={Bookmarks} />
         <Route exact path="/book/:slug" component={Book} />
+        <Route exact path="/read/:slug" component={ReadBook} />
       </div>
     </BrowserRouter>
   );

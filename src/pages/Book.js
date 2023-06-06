@@ -3,6 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { BOOKS } from "../constants/books";
 import Container from "../components/layout/Container";
 import JustForYou from "../components/layout/JustForYou";
+import CustomTitle from "../components/layout/CustomTitle";
 
 const Book = () => {
   const { slug } = useParams();
@@ -22,6 +23,7 @@ const Book = () => {
   return (
     <Container>
       <Container>
+        <CustomTitle title={book.title} />
         <div className="flex items-center text-sm mb-5">
           <Link to="/" className="underline text-sky-500 mr-2">
             Main
@@ -51,6 +53,7 @@ const Book = () => {
               <span>Categories:</span>{" "}
               {book.categories.map((category) => (
                 <Link
+                  key={category}
                   to={`/category/${category
                     .toLowerCase()
                     .split(" ")
@@ -65,6 +68,7 @@ const Book = () => {
               <span>Sub-Categories:</span>{" "}
               {book.subCategories.map((category) => (
                 <Link
+                  key={category}
                   to={`/sub-category/${category
                     .toLowerCase()
                     .split(" ")
@@ -79,6 +83,7 @@ const Book = () => {
               <span>Keywords:</span>{" "}
               {book.keywords.map((keyword) => (
                 <Link
+                  key={keyword}
                   to={`/keyword/${keyword.toLowerCase().split(" ").join("-")}`}
                   className="mx-1 underline hover:text-sky-700 capitalize"
                 >

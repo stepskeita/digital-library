@@ -1,6 +1,6 @@
 import React from "react";
 import { BOOKS } from "../../constants/books";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom";
 import Masonry from "react-masonry-css";
 
 const PopularBooks = () => {
@@ -10,6 +10,8 @@ const PopularBooks = () => {
     700: 4, // Number of columns for viewport width >= 700px
     500: 3, // Number of columns for viewport width >= 500px
   };
+  const history = useHistory();
+
   return (
     <div className="my-10">
       <h2 className="font-bold text-2xl mb-2">Popular Books</h2>
@@ -29,6 +31,14 @@ const PopularBooks = () => {
           </div>
         ))}
       </Masonry>
+      <div className="my-3 p-2 flex items-center justify-center">
+        <button
+          onClick={() => history.push(`/recently-added`)}
+          className="bg-sky-500 hover:bg-sky-600 text-white p-2 px-5 rounded-lg mr-2"
+        >
+          See more
+        </button>
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Container from "../components/layout/Container";
 import PopularBooks from "../components/home/PopularBooks";
+import RecentlyAddedBooks from "../components/home/RecentlyAddedBooks";
 
 const Home = () => {
   return (
@@ -22,8 +23,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* popular books */}
       <PopularBooks />
+      <RecentlyAddedBooks />
     </Container>
   );
 };

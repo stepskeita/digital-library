@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const Nav = () => {
   const history = useHistory();
   return (
-    <nav className="flex items-center justify-between px-3 p-2">
+    <nav className="sticky top-0 z-50 bg-white flex items-center justify-between px-3 p-2">
       <button onClick={() => history.push("/")}>
         <img src="/img/web-logo.png" alt="D-Lib" />
       </button>
