@@ -4,11 +4,14 @@ import { BOOKS } from "../constants/books";
 import Container from "../components/layout/Container";
 import JustForYou from "../components/layout/JustForYou";
 import CustomTitle from "../components/layout/CustomTitle";
+import scrollToTop from "../utils/scrollToTop";
+import { addToBookMarks } from "../utils/utilFunctions";
+import SuccessAlert from "../components/layout/CustomAlert";
 
 const Book = () => {
   const { slug } = useParams();
   const history = useHistory();
-
+  const [addedToBookMark, setAddedToBookMark] = useState();
   const [book, setBook] = useState(
     BOOKS.find((book) => book.title.toLowerCase().split(" ").join("-") === slug)
   );
@@ -19,6 +22,8 @@ const Book = () => {
         (book) => book.title.toLowerCase().split(" ").join("-") === slug
       )
     );
+    setAddedToBookMark(false);
+    scrollToTop();
   }, [slug]);
   return (
     <Container>
@@ -41,6 +46,7 @@ const Book = () => {
             <div className="flex items-center mb-3">
               {book.authors.map((author) => (
                 <Link
+                  key={author}
                   className="text-sky-500 hover:text-sky-700 underline mx-1"
                   to={`/author/${author.toLowerCase().split(" ").join("-")}`}
                 >
@@ -91,6 +97,19 @@ const Book = () => {
                 </Link>
               ))}
             </p>
+            {addedToBookMark && (
+              <SuccessAlert
+                text={
+                  <p className="text-black flex items-center">
+                    Book successfully added to{" "}
+                    <Link to="/bookmarks" className="underline mx-2">
+                      bookmarks
+                    </Link>
+                  </p>
+                }
+                handleClose={() => setAddedToBookMark(false)}
+              />
+            )}
             <div className="flex">
               <button
                 onClick={() => history.push(`/read/${slug}`)}
@@ -98,7 +117,10 @@ const Book = () => {
               >
                 Read this book
               </button>
-              <button className="bg-green-500 hover:bg-green-600 text-white p-2 px-5 rounded-lg">
+              <button
+                onClick={() => setAddedToBookMark(addToBookMarks(book))}
+                className="bg-green-500 hover:bg-green-600 text-white p-2 px-5 rounded-lg"
+              >
                 Add to bookmarks
               </button>
             </div>
