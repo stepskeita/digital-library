@@ -115,4 +115,4 @@ UserRouter.put('/me', authenticateToken, async(req, res) => {
     }
 });
 
-module.exports = UserUserRouter;
+module.exports = UserRouter;
