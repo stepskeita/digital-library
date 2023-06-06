@@ -5,9 +5,9 @@ const UserRouter = express.Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../Books Entity/DBModels');
 
-User.Router.post('/', (req, res) => {
-    res.status(200).json({ msg: 'Login successful.' });
-})
+// User.Router.post('/', (req, res) => {
+//     res.status(200).json({ msg: 'Login successful.' });
+// })
 
 function generateToken(user) {
     const payload = {
@@ -41,7 +41,7 @@ UserRouter.post('/signup', async(req, res) => {
         res.status(500).json({ msg: 'Server error.' });
     }
 });
-router.post('/login', async(req, res) => {
+UserRouter.post('/login', async(req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
@@ -77,7 +77,7 @@ function authenticateToken(req, res, next) {
         next();
     });
 }
-router.get('/me', authenticateToken, (req, res) => {
+UserRouter.get('/me', authenticateToken, (req, res) => {
     const userId = req.user.userId;
 
     User.findById(userId, (error, user) => {
@@ -94,7 +94,7 @@ router.get('/me', authenticateToken, (req, res) => {
     });
 });
 
-router.put('/me', authenticateToken, async(req, res) => {
+UserRouter.put('/me', authenticateToken, async(req, res) => {
     const userId = req.user.userId;
     const updatedProfile = req.body;
 
@@ -115,4 +115,4 @@ router.put('/me', authenticateToken, async(req, res) => {
     }
 });
 
-module.exports = UserRouter;
+module.exports = UserUserRouter;
