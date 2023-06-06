@@ -18,6 +18,8 @@ class BookCategories extends BookEntity {
         this.subcategories = subcategories;
     }
 }
+
+// im just trying to this with APi
 bookcategorie = {
     "bookCategories": [{
             "name": "Science",
