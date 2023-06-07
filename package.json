@@ -1,0 +1,26 @@
+{
+    "name": "digital-library",
+    "version": "1.0.0",
+    "description": "DL",
+    "main": "nodemon backend/server.js",
+    "scripts": {
+        "test": "13"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/elsalvacion/digital-library.git"
+    },
+    "author": "Keith",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/elsalvacion/digital-library/issues"
+    },
+    "homepage": "https://github.com/elsalvacion/digital-library#readme",
+    "dependencies": {
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "mongoose": "^7.2.2",
+        "nodemon": "^2.0.22"
+    }
+}
