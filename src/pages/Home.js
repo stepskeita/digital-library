@@ -31,10 +31,7 @@ const Home = () => {
         <Link to="/" className="mb-5">
           <img src="img/web-logo.png" alt="D-Lib" />
         </Link>
-        <form
-          onSubmit={handleSubmit}
-          className="flex items-stretch w-full px-3"
-        >
+        <form onSubmit={handleSubmit} className="flex items-stretch w-full">
           <input
             type="text"
             value={searchText}
