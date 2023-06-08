@@ -25,14 +25,6 @@ const PopularBooks = () => {
           <BookItem key={book.title} book={book} />
         ))}
       </Masonry>
-      <div className="my-3 p-2 flex items-center justify-center">
-        <button
-          onClick={() => history.push(`/recently-added`)}
-          className="bg-sky-500 hover:bg-sky-600 text-white p-2 px-5 rounded-lg mr-2"
-        >
-          See more
-        </button>
-      </div>
     </div>
   );
 };
