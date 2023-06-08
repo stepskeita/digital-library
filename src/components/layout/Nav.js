@@ -1,10 +1,11 @@
 import React from "react";
 import { FaBookmark, FaHistory, FaSearch } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { FaList } from "react-icons/fa";
 import ButtonTooltip from "./ButtonTooltip";
 const Nav = () => {
   const history = useHistory();
+  const { pathname } = useLocation();
   return (
     <nav className="sticky top-0 z-50 bg-white flex items-center justify-between px-3 p-2 border-b border-sky-100">
       <button onClick={() => history.push("/")}>
@@ -46,9 +47,11 @@ const Nav = () => {
 
           <ButtonTooltip target="bookmark-nav-btn-tooltip" title="History" />
         </div>
-        <button className="p-2 mx-2">
-          <FaSearch />
-        </button>
+        {pathname !== "/" && (
+          <button className="p-2 mx-2" onClick={() => history.push("/")}>
+            <FaSearch />
+          </button>
+        )}
       </div>
     </nav>
   );

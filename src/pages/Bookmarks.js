@@ -21,17 +21,19 @@ const Bookmarks = () => {
   return (
     <Container>
       <CustomTitle title="Bookmarks" />
-      <h2 className="text-2xl font-bold mb-7">Your Bookmarks</h2>
+      <h2 className="text-lg font-bold mb-7 flex items-center">
+        <button
+          onClick={() => history.goBack()}
+          className="underline text-sky-500 mr-2"
+        >
+          GO BACK
+        </button>
+        | Your Bookmarks
+      </h2>
 
-      {!booksMarks ? (
+      {!booksMarks || Object.keys(booksMarks).length === 0 ? (
         <div className="">
-          <button
-            onClick={() => history.goBack()}
-            className="underline text-sky-500 mr-2"
-          >
-            GO BACK
-          </button>
-          <p className="text-lg">You have not bookmarked any books</p>
+          <p className="my-3">You have not bookmarked any books</p>
         </div>
       ) : (
         Object.keys(booksMarks).map((key) => (

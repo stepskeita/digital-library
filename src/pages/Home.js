@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Container from "../components/layout/Container";
 import PopularBooks from "../components/home/PopularBooks";
-import RecentlyAddedBooks from "../components/home/RecentlyAddedBooks";
 import scrollToTop from "../utils/scrollToTop";
+import CustomTitle from "../components/layout/CustomTitle";
 
 const Home = () => {
   useEffect(() => {
@@ -11,6 +11,7 @@ const Home = () => {
   }, []);
   return (
     <Container>
+      <CustomTitle title="Home" />
       <div className="py-7 flex items-center justify-center flex-col w-full">
         <Link to="/" className="mb-5">
           <img src="img/web-logo.png" alt="D-Lib" />
@@ -28,7 +29,6 @@ const Home = () => {
       </div>
 
       <PopularBooks />
-      <RecentlyAddedBooks />
     </Container>
   );
 };

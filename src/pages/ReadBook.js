@@ -26,15 +26,17 @@ const ReadBook = () => {
     <Container>
       <button
         onClick={() => history.goBack()}
-        className="underline text-sky-500 mr-2"
+        className="underline text-sky-500 mb-3"
       >
         GO BACK
       </button>
-      <Worker workerUrl="/js/pdf.worker.min.js">
-        <div style={{ height: "750px" }}>
-          <Viewer fileUrl={book.book} />
-        </div>
-      </Worker>
+      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <Worker workerUrl="/js/pdf.worker.min.js">
+          <div style={{ height: "750px" }}>
+            <Viewer fileUrl={book.book} />
+          </div>
+        </Worker>
+      </div>
     </Container>
   );
 };
