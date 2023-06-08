@@ -30,13 +30,13 @@ const ReadBook = () => {
       >
         GO BACK
       </button>
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <Worker workerUrl="/js/pdf.worker.min.js">
-          <div style={{ height: "750px" }}>
-            <Viewer fileUrl={book.book} />
-          </div>
-        </Worker>
-      </div>
+      {/* <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"> */}
+      <Worker workerUrl="/js/pdf.worker.min.js">
+        <div style={{ height: "750px" }}>
+          <Viewer fileUrl={book.book} />
+        </div>
+      </Worker>
+      {/* </div> */}
     </Container>
   );
 };
