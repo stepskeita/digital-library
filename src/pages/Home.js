@@ -57,7 +57,11 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <p className="p-2">No books found for your search</p>
+        searchText.length > 2 &&
+        books &&
+        books.length === 0 && (
+          <p className="p-2">No books found for your search</p>
+        )
       )}
       <PopularBooks />
     </Container>
