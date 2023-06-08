@@ -30,9 +30,12 @@ const Book = () => {
       <Container>
         <CustomTitle title={book.title} />
         <div className="flex items-center text-sm mb-5">
-          <Link to="/" className="underline text-sky-500 mr-2">
-            Main
-          </Link>
+          <button
+            onClick={() => history.goBack()}
+            className="underline text-sky-500 mr-2"
+          >
+            GO BACK
+          </button>
           <span className="ml-1 mr-2">|</span>
           <p>{book.title}</p>
         </div>

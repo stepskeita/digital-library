@@ -1,7 +1,7 @@
 import React from "react";
 import { BOOKS } from "../../constants/books";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Masonry from "react-masonry-css";
+import BookItem from "./BookItem";
 
 const JustForYou = ({ slug }) => {
   const breakpointColumnsObj = {
@@ -24,20 +24,7 @@ const JustForYou = ({ slug }) => {
         {BOOKS.map(
           (book) =>
             slug !== book.title.toLowerCase().split(" ").join("-") && (
-              <div
-                key={book.title}
-                className=" rounded-xl shadow-md overflow-hidden"
-              >
-                <Link
-                  to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}
-                >
-                  <img
-                    src={book.coverImage}
-                    alt={book.title}
-                    className="w-full"
-                  />
-                </Link>
-              </div>
+              <BookItem key={book.title} book={book} />
             )
         )}
       </Masonry>

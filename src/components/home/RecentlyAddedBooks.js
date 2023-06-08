@@ -1,7 +1,8 @@
 import React from "react";
 import { BOOKS } from "../../constants/books";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Masonry from "react-masonry-css";
+import BookItem from "../layout/BookItem";
 
 const RecentlyAddedBooks = () => {
   const breakpointColumnsObj = {
@@ -20,14 +21,7 @@ const RecentlyAddedBooks = () => {
         columnClassName="my-masonry-grid_column"
       >
         {BOOKS.map((book) => (
-          <div
-            key={book.title}
-            className=" rounded-xl shadow-md overflow-hidden"
-          >
-            <Link to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}>
-              <img src={book.coverImage} alt={book.title} className="w-full" />
-            </Link>
-          </div>
+          <BookItem key={book.title} book={book} />
         ))}
       </Masonry>
       <div className="my-3 p-2 flex items-center justify-center">

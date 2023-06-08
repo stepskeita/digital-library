@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Container from "../components/layout/Container";
 import PopularBooks from "../components/home/PopularBooks";
 import RecentlyAddedBooks from "../components/home/RecentlyAddedBooks";
+import scrollToTop from "../utils/scrollToTop";
 
 const Home = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <Container>
       <div className="py-7 flex items-center justify-center flex-col w-full">
@@ -17,7 +21,7 @@ const Home = () => {
             className="flex-1 border border-sky-500 border-r-0 focus:outline-none focus:border-none"
             placeholder="Search for title, author, category, keyword ..."
           />
-          <button className="bg-sky-500 text-white p-3 px-12 border border-sky-500 hover:bg-sky-600">
+          <button className="bg-sky-500 text-white p-3 px-5 lg:px-12 border border-sky-500 hover:bg-sky-600">
             Search
           </button>
         </div>

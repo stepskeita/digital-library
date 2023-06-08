@@ -4,6 +4,7 @@ import { BOOKS } from "../constants/books";
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
+import Container from "../components/layout/Container";
 
 const ReadBook = () => {
   const { slug } = useParams();
@@ -22,10 +23,10 @@ const ReadBook = () => {
   }, [slug]);
 
   return (
-    <>
+    <Container>
       <button
         onClick={() => history.goBack()}
-        className="block w-fit mb-2 ml-5 p-2 rounded-lg bg-sky-500 hover:bg-sky-600 text-white"
+        className="underline text-sky-500 mr-2"
       >
         GO BACK
       </button>
@@ -34,7 +35,7 @@ const ReadBook = () => {
           <Viewer fileUrl={book.book} />
         </div>
       </Worker>
-    </>
+    </Container>
   );
 };
 
