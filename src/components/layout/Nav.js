@@ -11,6 +11,7 @@ const Nav = () => {
       <button onClick={() => history.push("/")}>
         <img src="/img/web-logo.png" alt="D-Lib" />
       </button>
+
       <div className="flex items-center">
         <div className="flex items-center">
           <button
@@ -28,7 +29,7 @@ const Nav = () => {
             onClick={() => history.push("/recently-added")}
             className="p-2 mx-2"
             data-tooltip-id="history-nav-btn-tooltip"
-            data-tooltip-content="History"
+            data-tooltip-content="Recently Added"
             type="button"
           >
             <FaHistory />

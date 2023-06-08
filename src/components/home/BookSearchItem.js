@@ -4,13 +4,18 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const BookSearchItem = ({ book }) => {
   return (
     <div className="border-t border-gray-300 p-3 flex items-stretch hover:shadow-sm hover:shadow-sky-500">
-      <Link to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}>
-        <img
-          src={book.coverImage}
-          className="w-36 h-40 object-scale-down"
-          alt=""
-        />
-      </Link>
+      <div className="w-36 h-40">
+        <Link
+          className="h-full w-full"
+          to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}
+        >
+          <img
+            src={book.coverImage}
+            className="w-full h-full object-scale-down"
+            alt=""
+          />
+        </Link>
+      </div>
       <div className="flex-1 px-4">
         <Link
           to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}

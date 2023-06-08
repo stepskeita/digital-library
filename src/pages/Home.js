@@ -28,9 +28,10 @@ const Home = () => {
     <Container>
       <CustomTitle title="Home" />
       <div className="py-7 flex items-center justify-center flex-col w-full">
-        <Link to="/" className="mb-5">
+        <Link to="/" className="mb-1">
           <img src="img/web-logo.png" alt="D-Lib" />
         </Link>
+        <p className="mb-5 italic">Your Digital Library</p>
         <form onSubmit={handleSubmit} className="flex items-stretch w-full">
           <input
             type="text"
@@ -38,7 +39,7 @@ const Home = () => {
             onChange={(e) =>
               dispatch({ type: SET_SEARCH_TEXT, payload: e.target.value })
             }
-            className="flex-1 border border-sky-500 border-r-0 focus:outline-sky-600 px-2"
+            className="flex-1 border border-sky-500 border-r-0 focus:outline-none focus:border-2 px-2"
             placeholder="Search for title, author, category, keyword ..."
           />
           <button
