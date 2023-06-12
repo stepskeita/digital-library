@@ -1,6 +1,5 @@
 import React from "react";
 import { BOOKS } from "../../constants/books";
-import { useHistory } from "react-router-dom";
 import Masonry from "react-masonry-css";
 import BookItem from "../layout/BookItem";
 
@@ -11,7 +10,6 @@ const PopularBooks = () => {
     700: 4, // Number of columns for viewport width >= 700px
     500: 3, // Number of columns for viewport width >= 500px
   };
-  const history = useHistory();
 
   return (
     <div className="my-10">

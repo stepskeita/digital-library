@@ -13,7 +13,7 @@ const Catalog = () => {
 
   useEffect(() => {
     dispatch(getCatalog());
-  }, []);
+  }, [dispatch]);
   return (
     <Container>
       <CustomTitle title="Catalog" />

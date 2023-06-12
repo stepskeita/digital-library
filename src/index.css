@@ -8,6 +8,7 @@ body {
   font-family: "Mulish", sans-serif;
   background: #fafafa;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 html {

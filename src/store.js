@@ -6,13 +6,21 @@ import {
   searchBookReducer,
   searchTextReducer,
 } from "./reducers/generalReducer";
+import { loginUserReducer } from "./reducers/userReducer";
 
 const middleware = [thunk];
-const initialState = {};
+const initialState = {
+  userLogin: {
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+  },
+};
 const reducers = combineReducers({
   searchBook: searchBookReducer,
   searchText: searchTextReducer,
   booksCatalog: bookCatalogReducer,
+  userLogin: loginUserReducer,
 });
 const store = createStore(
   reducers,
