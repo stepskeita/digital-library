@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import Container from "../components/layout/Container";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Route, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import UploadBook from "./UploadBook";
 
 const Dashboad = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const history = useHistory();
   useEffect(() => {
     if (!userInfo) history.push("/login");
-  }, [userInfo]);
+  }, [userInfo, history]);
   return (
     <div>
-      <Container>Dashboad</Container>
+      <Route component={UploadBook} path="/" />
     </div>
   );
 };

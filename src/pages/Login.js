@@ -14,7 +14,7 @@ const Login = () => {
   const { userInfo, error, loading } = useSelector((state) => state.userLogin);
   useEffect(() => {
     if (userInfo) history.push("/dashboard");
-  }, [userInfo]);
+  }, [userInfo, history]);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(values));
@@ -56,7 +56,7 @@ const Login = () => {
                 onChange={(e) =>
                   setValues({ ...values, email: e.target.value })
                 }
-                className="px-2 p-2 outline-none border border-sky-500 w-full focus:border-2"
+                className="px-2 p-2 outline-none border border-sky-500/20 w-full focus:border-sky-500"
                 placeholder="Email"
               />
             </div>
@@ -78,7 +78,7 @@ const Login = () => {
                   }
                   type={showPassword ? "text" : "password"}
                   id="password"
-                  className="px-2 p-2 outline-none border border-sky-500 w-full focus:border-2"
+                  className="px-2 p-2 outline-none border border-sky-500/20 w-full focus:border-sky-500"
                   placeholder="Password"
                 />
                 {!showPassword ? (

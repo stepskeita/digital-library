@@ -1,20 +1,13 @@
 import React, { useState } from "react";
 import Container from "../components/layout/Container";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../action/userAction";
 import LoadingIndicator from "../components/layout/LoadingIndicator";
 
 const ForgotPassword = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [values, setValues] = useState({ email: "", password: "" });
+  const [values, setValues] = useState({ email: "" });
 
-  const dispatch = useDispatch();
-  const { userInfo, error, loading } = useSelector((state) => state.userLogin);
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(values));
   };
   return (
     <div className="min-h-screen relative">
@@ -34,9 +27,9 @@ const ForgotPassword = () => {
                 <img src="/img/web-logo.png" alt="D-LIB" />
               </Link>
             </div>
-            {error && (
-              <div className="bg-red-300 p-2 my-2 mb-4 text-black">{error}</div>
-            )}
+
+            <h2 className="mb-4 font-bold text-2xl">Reset Password</h2>
+
             {/* email */}
             <div className="mb-3">
               <label
@@ -53,56 +46,16 @@ const ForgotPassword = () => {
                 onChange={(e) =>
                   setValues({ ...values, email: e.target.value })
                 }
-                className="px-2 p-2 outline-none border border-sky-500 w-full focus:border-2"
+                className="px-2 p-2 outline-none border border-sky-500/20 w-full focus:border-sky-500"
                 placeholder="Email"
               />
             </div>
 
-            {/* password */}
-            <div className="mb-3">
-              <label
-                htmlFor="password"
-                className="block mb-1 text-sm after:content-['*'] after:ml-1 after:text-red-500"
-              >
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  required
-                  value={values.password}
-                  onChange={(e) =>
-                    setValues({ ...values, password: e.target.value })
-                  }
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  className="px-2 p-2 outline-none border border-sky-500 w-full focus:border-2"
-                  placeholder="Password"
-                />
-                {!showPassword ? (
-                  <button onClick={() => setShowPassword(!showPassword)}>
-                    <FaEye className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer" />
-                  </button>
-                ) : (
-                  <button onClick={() => setShowPassword(!showPassword)}>
-                    <FaEyeSlash className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer" />
-                  </button>
-                )}
-              </div>
-            </div>
-
-            <Link
-              to="forgot-password"
-              className="text-sm underline block w-fit mb-5"
-            >
-              Forgot your password?
-            </Link>
-
             <button
-              disabled={loading}
               type="submit"
               className="bg-sky-600 w-full text-white py-2 hover:bg-sky-500"
             >
-              {loading ? <LoadingIndicator message="Loading..." /> : "Sign in"}
+              Request a reset link
             </button>
           </form>
         </Container>
