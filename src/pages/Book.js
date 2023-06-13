@@ -73,21 +73,7 @@ const Book = () => {
                 </Link>
               ))}
             </p>
-            <p className="text-gray-800 mb-2 text-sm">
-              <span>Sub-Categories:</span>{" "}
-              {book.subCategories.map((category) => (
-                <Link
-                  key={category}
-                  to={`/sub-category/${category
-                    .toLowerCase()
-                    .split(" ")
-                    .join("-")}`}
-                  className="mx-1 underline hover:text-sky-700 capitalize"
-                >
-                  {category}
-                </Link>
-              ))}
-            </p>
+
             <p className="text-gray-800 mb-5 text-sm">
               <span>Keywords:</span>{" "}
               {book.keywords.map((keyword) => (

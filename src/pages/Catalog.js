@@ -3,7 +3,7 @@ import Container from "../components/layout/Container";
 import CustomTitle from "../components/layout/CustomTitle";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCatalog } from "../action/generalAction";
+import { getCatalog } from "../action/bookAction";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Catalog = () => {

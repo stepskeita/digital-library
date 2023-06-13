@@ -1,6 +1,6 @@
 import React from "react";
 
-const FileInput = ({ id, label }) => {
+const FileInput = ({ id, label, ...rest }) => {
   return (
     <div className="mb-3">
       <label
@@ -9,7 +9,7 @@ const FileInput = ({ id, label }) => {
       >
         {label}
       </label>
-      <input type="file" id={id} hidden />
+      <input type="file" id={id} hidden {...rest} />
     </div>
   );
 };

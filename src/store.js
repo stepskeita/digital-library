@@ -5,7 +5,8 @@ import {
   bookCatalogReducer,
   searchBookReducer,
   searchTextReducer,
-} from "./reducers/generalReducer";
+  uploadBookReducer,
+} from "./reducers/bookReducer";
 import { loginUserReducer } from "./reducers/userReducer";
 
 const middleware = [thunk];
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   searchBook: searchBookReducer,
   searchText: searchTextReducer,
   booksCatalog: bookCatalogReducer,
+  uploadBook: uploadBookReducer,
   userLogin: loginUserReducer,
 });
 const store = createStore(

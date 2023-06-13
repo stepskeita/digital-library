@@ -10,7 +10,26 @@ import {
   SEARCH_BOOK_RESET,
   SEARCH_BOOK_SUCCESS,
   SET_SEARCH_TEXT,
-} from "./types/generalTypes";
+  UPLOAD_BOOK_ERROR,
+  UPLOAD_BOOK_LOADING,
+  UPLOAD_BOOK_RESET,
+  UPLOAD_BOOK_SUCCESS,
+} from "./types/bookTypes";
+
+export const uploadBookReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPLOAD_BOOK_LOADING:
+      return { loading: true };
+    case UPLOAD_BOOK_SUCCESS:
+      return { book: action.payload };
+    case UPLOAD_BOOK_ERROR:
+      return { error: action.payload };
+    case UPLOAD_BOOK_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
 
 export const searchTextReducer = (state = { searchText: "" }, action) => {
   switch (action.type) {

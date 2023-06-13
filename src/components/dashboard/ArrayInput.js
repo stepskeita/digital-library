@@ -38,7 +38,7 @@ const ArrayInput = ({ inputValue, setInputValue, id }) => {
                 onClick={() => handleRemoveClick(i)}
                 className="p-2  mx-1 h-full w-fit  border-0 outline-0  uppercase text-sm bg-red-700 hover:bg-red-800 text-white"
               >
-                <MdDelete />
+                <MdDelete className="text-lg" />
               </button>
             )}
             {inputValue.length - 1 === i && (
@@ -46,7 +46,7 @@ const ArrayInput = ({ inputValue, setInputValue, id }) => {
                 className="p-2  mx-1 h-full w-fit border-0 outline-0  uppercase text-sm bg-green-700 hover:bg-green-800 text-white"
                 onClick={handleAddClick}
               >
-                <FaPlus />
+                <FaPlus className="text-lg" />
               </button>
             )}
           </div>

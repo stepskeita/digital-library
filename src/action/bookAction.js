@@ -6,7 +6,29 @@ import {
   SEARCH_BOOK_ERROR,
   SEARCH_BOOK_LOADING,
   SEARCH_BOOK_SUCCESS,
-} from "../reducers/types/generalTypes";
+  UPLOAD_BOOK_ERROR,
+  UPLOAD_BOOK_LOADING,
+  UPLOAD_BOOK_SUCCESS,
+} from "../reducers/types/bookTypes";
+
+export const uploadBook = (details) => (dispatch) => {
+  try {
+    dispatch({
+      type: UPLOAD_BOOK_LOADING,
+    });
+    console.log(details);
+    dispatch({
+      type: UPLOAD_BOOK_SUCCESS,
+      payload: details,
+    });
+  } catch (err) {
+    const message = "cannot search books at the moment";
+    dispatch({
+      type: UPLOAD_BOOK_ERROR,
+      payload: message,
+    });
+  }
+};
 
 export const searchBook = () => (dispatch, getState) => {
   try {

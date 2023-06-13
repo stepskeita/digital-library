@@ -5,9 +5,9 @@ import PopularBooks from "../components/home/PopularBooks";
 import scrollToTop from "../utils/scrollToTop";
 import CustomTitle from "../components/layout/CustomTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_SEARCH_TEXT } from "../reducers/types/generalTypes";
+import { SET_SEARCH_TEXT } from "../reducers/types/bookTypes";
 import BookSearchItem from "../components/home/BookSearchItem";
-import { searchBook } from "../action/generalAction";
+import { searchBook } from "../action/bookAction";
 
 const Home = () => {
   const { searchText } = useSelector((state) => state.searchText);
