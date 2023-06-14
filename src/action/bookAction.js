@@ -1,8 +1,15 @@
-import { BOOKS } from "../constants/books";
+import axios from "axios";
+
 import {
   BOOKS_CATALOG_ERROR,
   BOOKS_CATALOG_LOADING,
   BOOKS_CATALOG_SUCCESS,
+  GET_BOOKS_ERROR,
+  GET_BOOKS_LOADING,
+  GET_BOOKS_SUCCESS,
+  GET_BOOK_ERROR,
+  GET_BOOK_LOADING,
+  GET_BOOK_SUCCESS,
   SEARCH_BOOK_ERROR,
   SEARCH_BOOK_LOADING,
   SEARCH_BOOK_SUCCESS,
@@ -10,16 +17,42 @@ import {
   UPLOAD_BOOK_LOADING,
   UPLOAD_BOOK_SUCCESS,
 } from "../reducers/types/bookTypes";
+import { backendApiUrl } from "../constants/url";
 
-export const uploadBook = (details) => (dispatch) => {
+export const uploadBook = (details) => async (dispatch) => {
   try {
     dispatch({
       type: UPLOAD_BOOK_LOADING,
     });
-    console.log(details);
+    const formData = new FormData();
+
+    const newDetails = { ...details };
+    delete newDetails.bookFile;
+    delete newDetails.coverImage;
+
+    formData.append("bookFile", details.bookFile);
+    formData.append("coverImage", details.coverImage);
+    formData.append("details", JSON.stringify(newDetails));
+
+    // const {
+    //   userLogin: { userInfo },
+    // } = getState();
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        // Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.post(
+      `${backendApiUrl}/book`,
+      formData,
+      config
+    );
+
     dispatch({
       type: UPLOAD_BOOK_SUCCESS,
-      payload: details,
+      payload: data.msg,
     });
   } catch (err) {
     const message = "cannot search books at the moment";
@@ -30,7 +63,47 @@ export const uploadBook = (details) => (dispatch) => {
   }
 };
 
-export const searchBook = () => (dispatch, getState) => {
+export const getBooks =
+  (url = `${backendApiUrl}/book`) =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: GET_BOOKS_LOADING,
+      });
+      const { data } = await axios.get(url);
+      dispatch({
+        type: GET_BOOKS_SUCCESS,
+        payload: data.msg,
+      });
+    } catch (err) {
+      const message = "cannot get books at the moment";
+      dispatch({
+        type: GET_BOOKS_ERROR,
+        payload: message,
+      });
+    }
+  };
+
+export const getBook = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: GET_BOOK_LOADING,
+    });
+    const { data } = await axios.get(`${backendApiUrl}/book/${id}`);
+    dispatch({
+      type: GET_BOOK_SUCCESS,
+      payload: data.msg,
+    });
+  } catch (err) {
+    const message = "cannot get book at the moment";
+    dispatch({
+      type: GET_BOOK_ERROR,
+      payload: message,
+    });
+  }
+};
+
+export const searchBook = () => async (dispatch, getState) => {
   try {
     dispatch({
       type: SEARCH_BOOK_LOADING,
@@ -38,41 +111,13 @@ export const searchBook = () => (dispatch, getState) => {
     const {
       searchText: { searchText },
     } = getState();
-    const searchTextLowercase = searchText.toLowerCase();
-    const books = BOOKS.filter((book) => {
-      const titleLowerCase = book.title.toLowerCase();
-      const descriptionLowerCase = book.description.toLowerCase();
-      const authorsLowerCase = book.authors.map((author) =>
-        author.toLowerCase()
-      );
-      const categoriesLowerCase = book.categories.map((category) =>
-        category.toLowerCase()
-      );
-      const keywordsLowerCase = book.keywords.map((keyword) =>
-        keyword.toLowerCase()
-      );
 
-      if (
-        titleLowerCase.includes(searchTextLowercase) ||
-        descriptionLowerCase.includes(searchText) ||
-        authorsLowerCase.find((author) =>
-          author.includes(searchTextLowercase)
-        ) ||
-        categoriesLowerCase.find((category) =>
-          category.includes(searchTextLowercase)
-        ) ||
-        keywordsLowerCase.find((keyword) =>
-          keyword.includes(searchTextLowercase)
-        )
-      )
-        return book;
-
-      return null;
-    });
-
+    const { data } = await axios.get(
+      `${backendApiUrl}/book?search=${searchText}`
+    );
     dispatch({
       type: SEARCH_BOOK_SUCCESS,
-      payload: books,
+      payload: data.msg,
     });
   } catch (err) {
     const message = "cannot search books at the moment";
@@ -83,56 +128,17 @@ export const searchBook = () => (dispatch, getState) => {
   }
 };
 
-export const getCatalog = () => (dispatch) => {
+export const getCatalog = () => async (dispatch) => {
   try {
     dispatch({
       type: BOOKS_CATALOG_LOADING,
     });
 
-    const catalog = {};
-    const alphabets = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
-
-    alphabets.forEach((alphabet) => {
-      const letterBooks = [];
-      BOOKS.forEach((book) => {
-        if (book.title.toLowerCase().startsWith(alphabet.toLowerCase()))
-          letterBooks.push(book);
-      });
-      if (letterBooks.length > 0) {
-        catalog[alphabet] = letterBooks;
-      }
-    });
+    const { data } = await axios.get(`${backendApiUrl}/book/catalog`);
 
     dispatch({
       type: BOOKS_CATALOG_SUCCESS,
-      payload: catalog,
+      payload: data.msg,
     });
   } catch (err) {
     const message = "cannot get books catalog at the moment";

@@ -4,7 +4,7 @@ export const addToBookMarks = (book) => {
     : {};
   if (!book) return false;
 
-  const key = book.title.toLowerCase().split(" ").join("-");
+  const key = book._id;
   bookmarks[key] = book;
 
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -17,7 +17,7 @@ export const deleteFromBookMarks = (book) => {
     : {};
   if (!book) return null;
 
-  const key = book.title.toLowerCase().split(" ").join("-");
+  const key = book._id;
   delete bookmarks[key];
 
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));

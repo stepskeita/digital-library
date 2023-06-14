@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCatalog } from "../action/bookAction";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import scrollToTop from "../utils/scrollToTop";
 
 const Catalog = () => {
   const history = useHistory();
@@ -13,11 +14,12 @@ const Catalog = () => {
 
   useEffect(() => {
     dispatch(getCatalog());
+    scrollToTop();
   }, [dispatch]);
   return (
     <Container>
       <CustomTitle title="Catalog" />
-      <h2 className="text-lg font-bold mb-7 flex items-center">
+      <h2 className="text-sm mb-7 flex items-center">
         <button
           onClick={() => history.goBack()}
           className="underline text-sky-500 mr-2"
@@ -31,15 +33,13 @@ const Catalog = () => {
         <div className="bg-white border border-gray-800 p-2">
           <div className="grid grid-cols-2 xl:grid-cols-3">
             {Object.keys(catalog).map((catalogItem) => (
-              <div key={catalog} className="mb-4">
+              <div key={catalogItem} className="mb-4">
                 <p className="font-bold text-xl">{catalogItem}</p>
                 <div className="flex flex-col">
                   {catalog[catalogItem].map((book) => (
                     <Link
-                      to={`/book/${book.title
-                        .toLowerCase()
-                        .split(" ")
-                        .join("-")}`}
+                      key={book._id}
+                      to={`/book/${book._id}`}
                       className="text-sm my-1 capitalize hover:underline"
                     >
                       {book.title}

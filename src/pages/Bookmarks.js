@@ -13,7 +13,7 @@ const Bookmarks = () => {
   const history = useHistory();
   useEffect(() => {
     scrollToTop();
-  }, []);
+  }, [history]);
 
   const handleDeleteFromBookMarks = (book) => {
     setBookMarks(deleteFromBookMarks(book));
@@ -21,7 +21,7 @@ const Bookmarks = () => {
   return (
     <Container>
       <CustomTitle title="Bookmarks" />
-      <h2 className="text-lg font-bold mb-7 flex items-center">
+      <h2 className="text-sm  mb-7 flex items-center">
         <button
           onClick={() => history.goBack()}
           className="underline text-sky-500 mr-2"

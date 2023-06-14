@@ -3,6 +3,8 @@ import { composeWithDevTools } from "@redux-devtools/extension";
 import thunk from "redux-thunk";
 import {
   bookCatalogReducer,
+  getBookReducer,
+  getBooksReducer,
   searchBookReducer,
   searchTextReducer,
   uploadBookReducer,
@@ -22,6 +24,8 @@ const reducers = combineReducers({
   searchText: searchTextReducer,
   booksCatalog: bookCatalogReducer,
   uploadBook: uploadBookReducer,
+  getBooks: getBooksReducer,
+  getBook: getBookReducer,
   userLogin: loginUserReducer,
 });
 const store = createStore(

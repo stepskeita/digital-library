@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { backendUrl } from "../../constants/url";
 
 const BookSearchItem = ({ book }) => {
   return (
-    <div className="border-t border-gray-300 p-3 flex items-stretch hover:shadow-sm hover:shadow-sky-500">
-      <div className="w-36 h-40">
+    <div className="border-t border-gray-300 p-3 flex hover:shadow-sm hover:shadow-sky-500">
+      <div className="w-4/12 h-40">
         <Link
           className="h-full w-full"
-          to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}
+          // to={`/book/${book.title}`}
+          to={`/book/${book._id}`}
         >
           <img
-            src={book.coverImage}
+            src={`${backendUrl}/${book.coverImage}`}
             className="w-full h-full object-scale-down"
             alt=""
           />
@@ -18,7 +20,7 @@ const BookSearchItem = ({ book }) => {
       </div>
       <div className="flex-1 px-4">
         <Link
-          to={`/book/${book.title.toLowerCase().split(" ").join("-")}`}
+          to={`/book/${book._id}`}
           className="font-semibold underline block mb-3"
         >
           {book.title}
@@ -28,7 +30,7 @@ const BookSearchItem = ({ book }) => {
             <Link
               key={author}
               className="hover:text-sky-500 text-gray-700 mx-1"
-              to={`/author/${author.toLowerCase().split(" ").join("-")}`}
+              to={`/author/${author}`}
             >
               {author}
             </Link>
@@ -39,7 +41,7 @@ const BookSearchItem = ({ book }) => {
           {book.categories.map((category) => (
             <Link
               key={category}
-              to={`/category/${category.toLowerCase().split(" ").join("-")}`}
+              to={`/category/${category}`}
               className="mx-1 underline hover:text-sky-700 capitalize"
             >
               {category}
@@ -51,7 +53,7 @@ const BookSearchItem = ({ book }) => {
           {book.keywords.map((keyword) => (
             <Link
               key={keyword}
-              to={`/keyword/${keyword.toLowerCase().split(" ").join("-")}`}
+              to={`/keyword/${keyword}`}
               className="mx-1 underline hover:text-sky-700 capitalize"
             >
               {keyword}

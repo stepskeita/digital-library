@@ -39,12 +39,12 @@ const Home = () => {
             onChange={(e) =>
               dispatch({ type: SET_SEARCH_TEXT, payload: e.target.value })
             }
-            className="flex-1 border border-sky-500 border-r-0 focus:outline-none focus:border-2 px-2"
+            className="flex-1 text-sm border border-sky-500/50 focus:border-sky-500 border-r-0 focus:outline-none px-2"
             placeholder="Search for title, author, category, keyword ..."
           />
           <button
             type="submit"
-            className="bg-sky-500 text-white p-3 px-5 lg:px-12 border border-sky-500 hover:bg-sky-600"
+            className="text-sm bg-sky-500 text-white p-3 px-4 lg:px-12 border border-sky-500 hover:bg-sky-600"
           >
             Search
           </button>

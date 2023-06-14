@@ -32,10 +32,13 @@ const Login = () => {
             onSubmit={handleSubmit}
             class="max-w-md p-6 bg-white/95 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto"
           >
-            <div className="w-fit mx-auto mb-7">
+            <div className="w-fit mx-auto mb-7 flex flex-col items-center">
               <Link to="/">
                 <img src="/img/web-logo.png" alt="D-LIB" />
               </Link>
+              <div className="text-sm italic">
+                This area is reserved for only admins
+              </div>
             </div>
             {error && (
               <div className="bg-red-300 p-2 my-2 mb-4 text-black">{error}</div>
@@ -82,11 +85,17 @@ const Login = () => {
                   placeholder="Password"
                 />
                 {!showPassword ? (
-                  <button onClick={() => setShowPassword(!showPassword)}>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                     <FaEye className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer" />
                   </button>
                 ) : (
-                  <button onClick={() => setShowPassword(!showPassword)}>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                     <FaEyeSlash className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer" />
                   </button>
                 )}

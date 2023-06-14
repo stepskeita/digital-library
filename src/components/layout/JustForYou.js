@@ -1,9 +1,25 @@
-import React from "react";
-import { BOOKS } from "../../constants/books";
+import React, { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import BookItem from "./BookItem";
+import { useDispatch, useSelector } from "react-redux";
+import { getBooks } from "../../action/bookAction";
 
 const JustForYou = ({ slug }) => {
+  const { loading, books, error } = useSelector((state) => state.getBooks);
+  const [filteredBooks, setFilteredBooks] = useState(null);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (books) {
+      setFilteredBooks(
+        books.filter((book) => (book._id !== slug ? book : null))
+      );
+    }
+  }, [books, slug]);
+
   const breakpointColumnsObj = {
     default: 6, // Number of columns for default view
     1100: 5, // Number of columns for viewport width >= 1100px
@@ -21,11 +37,13 @@ const JustForYou = ({ slug }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {BOOKS.map(
-          (book) =>
-            slug !== book.title.toLowerCase().split(" ").join("-") && (
-              <BookItem key={book.title} book={book} />
-            )
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          filteredBooks &&
+          filteredBooks.map((book) => <BookItem key={book.title} book={book} />)
         )}
       </Masonry>
     </div>

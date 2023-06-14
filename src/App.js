@@ -9,6 +9,9 @@ import ReadBook from "./pages/ReadBook";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Dashboad from "./pages/Dashboad";
+import AuthorSearch from "./pages/AuthorSearch";
+import CategorySearch from "./pages/CategorySearch";
+import KeywordSearch from "./pages/KeywordSearch";
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route exact path="/bookmarks" component={Bookmarks} />
         <Route exact path="/book/:slug" component={Book} />
         <Route exact path="/read/:slug" component={ReadBook} />
+        <Route exact path="/author/:slug" component={AuthorSearch} />
+        <Route exact path="/category/:slug" component={CategorySearch} />
+        <Route exact path="/keyword/:slug" component={KeywordSearch} />
       </div>
     </BrowserRouter>
   );

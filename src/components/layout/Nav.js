@@ -33,7 +33,7 @@ const Nav = () => {
             data-tooltip-content="Catalog"
             type="button"
             onClick={() => history.push("/catalog")}
-            className="p-2 mx-2"
+            className="p-1 mx-1"
           >
             <FaList />
           </button>
@@ -41,7 +41,7 @@ const Nav = () => {
 
           <button
             onClick={() => history.push("/recently-added")}
-            className="p-2 mx-2"
+            className="p-1 mx-1"
             data-tooltip-id="history-nav-btn-tooltip"
             data-tooltip-content="Recently Added"
             type="button"
@@ -52,7 +52,7 @@ const Nav = () => {
           <ButtonTooltip target="history-nav-btn-tooltip" />
           <button
             onClick={() => history.push("/bookmarks")}
-            className="p-2 mx-2"
+            className="p-1 mx-1"
             data-tooltip-id="bookmark-nav-btn-tooltip"
             data-tooltip-content="Bookmark"
             type="button"
@@ -66,7 +66,7 @@ const Nav = () => {
               <button
                 data-tooltip-id="search-nav-btn-tooltip"
                 data-tooltip-content="Search"
-                className="p-2 mx-2"
+                className="p-1 mx-1"
                 onClick={() => history.push("/")}
               >
                 <FaSearch />
@@ -79,7 +79,7 @@ const Nav = () => {
             <Menu
               className="bg-white p-0"
               menuButton={
-                <MenuButton className="p-2 mx-2">
+                <MenuButton className="p-1 mx-1">
                   <FaUserAlt />
                 </MenuButton>
               }
@@ -102,7 +102,7 @@ const Nav = () => {
           ) : (
             <button
               onClick={() => history.push("/login")}
-              className="p-2 mx-2"
+              className="p-1 mx-1"
               data-tooltip-id="user-nav-btn-tooltip"
               data-tooltip-content="Login"
               type="button"

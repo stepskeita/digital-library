@@ -35,6 +35,7 @@ const ArrayInput = ({ inputValue, setInputValue, id }) => {
           <div className="flex items-center">
             {inputValue.length !== 1 && (
               <button
+                type="button"
                 onClick={() => handleRemoveClick(i)}
                 className="p-2  mx-1 h-full w-fit  border-0 outline-0  uppercase text-sm bg-red-700 hover:bg-red-800 text-white"
               >
@@ -43,6 +44,7 @@ const ArrayInput = ({ inputValue, setInputValue, id }) => {
             )}
             {inputValue.length - 1 === i && (
               <button
+                type="button"
                 className="p-2  mx-1 h-full w-fit border-0 outline-0  uppercase text-sm bg-green-700 hover:bg-green-800 text-white"
                 onClick={handleAddClick}
               >

@@ -17,7 +17,10 @@ const FilePreview = ({ file, reset }) => {
       </div>
       <div className="flex-1 p-2 md:px-4 flex flex-col justify-center">
         <p className="mb-2 text-sm">{file.name}</p>
-        <button onClick={() => reset()} className="text-red-600 my-3">
+        <button
+          onClick={() => reset()}
+          className="text-red-600 hover:text-red-500 my-3 w-fit"
+        >
           <MdDelete className="text-3xl" />
         </button>
       </div>
