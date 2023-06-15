@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Container from "../components/layout/Container";
 import PopularBooks from "../components/home/PopularBooks";
-import scrollToTop from "../utils/scrollToTop";
 import CustomTitle from "../components/layout/CustomTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_SEARCH_TEXT } from "../reducers/types/bookTypes";
 import BookSearchItem from "../components/home/BookSearchItem";
 import { searchBook } from "../action/bookAction";
+import Pagination from "../components/layout/Pagination";
 
 const Home = () => {
   const { searchText } = useSelector((state) => state.searchText);
-  const { books } = useSelector((state) => state.searchBook);
+  const { books, total, page } = useSelector((state) => state.searchBook);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    scrollToTop();
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,11 +48,20 @@ const Home = () => {
         </form>
       </div>
       {books && books.length > 0 ? (
-        <div className="bg-white border border-gray-800">
-          {books.map((book) => (
-            <BookSearchItem book={book} key={book.title} />
-          ))}
-        </div>
+        <>
+          <div className="bg-white border border-gray-800">
+            {books.map((book) => (
+              <BookSearchItem book={book} key={book.title} />
+            ))}
+
+            <Pagination
+              total={total}
+              page={page}
+              prevAction={(prevPage) => dispatch(searchBook(prevPage))}
+              nextAction={(nextPage) => dispatch(searchBook(nextPage))}
+            />
+          </div>
+        </>
       ) : (
         searchText.length > 2 &&
         books &&

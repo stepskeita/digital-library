@@ -4,15 +4,12 @@ import BookItem from "../layout/BookItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../../action/bookAction";
 import { backendApiUrl } from "../../constants/url";
-import Pagination from "../layout/Pagination";
 
 const PopularBooks = () => {
-  const { loading, books, error, total, page } = useSelector(
-    (state) => state.getBooks
-  );
+  const { loading, books, error } = useSelector((state) => state.getBooks);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBooks(`${backendApiUrl}/book?popular=true`));
+    dispatch(getBooks(`${backendApiUrl}/book?popular=true&limit=20`));
   }, [dispatch]);
 
   const breakpointColumnsObj = {
@@ -40,21 +37,6 @@ const PopularBooks = () => {
           books.map((book) => <BookItem key={book.title} book={book} />)
         )}
       </Masonry>
-
-      <Pagination
-        total={total}
-        page={page}
-        prevAction={(prevPage) =>
-          dispatch(
-            getBooks(`${backendApiUrl}/book?popular=true&page=${prevPage}`)
-          )
-        }
-        nextAction={(nextPage) =>
-          dispatch(
-            getBooks(`${backendApiUrl}/book?popular=true&page=${nextPage}`)
-          )
-        }
-      />
     </div>
   );
 };

@@ -6,9 +6,13 @@ import Container from "../components/layout/Container";
 import CustomTitle from "../components/layout/CustomTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../action/bookAction";
+import Pagination from "../components/layout/Pagination";
+import { backendApiUrl } from "../constants/url";
 
 const RecentlyAdded = () => {
-  const { loading, books, error } = useSelector((state) => state.getBooks);
+  const { loading, books, error, total, page } = useSelector(
+    (state) => state.getBooks
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks());
@@ -47,6 +51,17 @@ const RecentlyAdded = () => {
           books.map((book) => <BookItem key={book.title} book={book} />)
         )}
       </Masonry>
+
+      <Pagination
+        total={total}
+        page={page}
+        prevAction={(prevPage) =>
+          dispatch(getBooks(`${backendApiUrl}/book?page=${prevPage}`))
+        }
+        nextAction={(nextPage) =>
+          dispatch(getBooks(`${backendApiUrl}/book?page=${nextPage}`))
+        }
+      />
     </Container>
   );
 };

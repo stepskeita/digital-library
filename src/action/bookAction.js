@@ -103,30 +103,32 @@ export const getBook = (id) => async (dispatch) => {
   }
 };
 
-export const searchBook = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: SEARCH_BOOK_LOADING,
-    });
-    const {
-      searchText: { searchText },
-    } = getState();
+export const searchBook =
+  (page = 1) =>
+  async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: SEARCH_BOOK_LOADING,
+      });
+      const {
+        searchText: { searchText },
+      } = getState();
 
-    const { data } = await axios.get(
-      `${backendApiUrl}/book?search=${searchText}`
-    );
-    dispatch({
-      type: SEARCH_BOOK_SUCCESS,
-      payload: data.msg,
-    });
-  } catch (err) {
-    const message = "cannot search books at the moment";
-    dispatch({
-      type: SEARCH_BOOK_ERROR,
-      payload: message,
-    });
-  }
-};
+      const { data } = await axios.get(
+        `${backendApiUrl}/book?search=${searchText}&page=${page}`
+      );
+      dispatch({
+        type: SEARCH_BOOK_SUCCESS,
+        payload: data.msg,
+      });
+    } catch (err) {
+      const message = "cannot search books at the moment";
+      dispatch({
+        type: SEARCH_BOOK_ERROR,
+        payload: message,
+      });
+    }
+  };
 
 export const getCatalog = () => async (dispatch) => {
   try {
