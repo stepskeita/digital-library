@@ -7,7 +7,7 @@ const Pagination = ({ total, page, prevAction, nextAction }) => {
       <button
         disabled={page === 1}
         onClick={() => prevAction(page - 1)}
-        class="p-2 text-lg px-4 hover:bg-sky-100  mx-1 text-black disabled:cursor-not-allowed"
+        className="p-2 text-lg px-4 hover:bg-sky-100  mx-1 text-black disabled:cursor-not-allowed"
       >
         Previous
       </button>
@@ -22,7 +22,7 @@ const Pagination = ({ total, page, prevAction, nextAction }) => {
               ? nextAction(currNum)
               : null
           }
-          class={`p-2 text-lg px-4   mx-1 text-black ${
+          className={`p-2 text-lg px-4   mx-1 text-black ${
             currNum === page && "bg-sky-500 text-white"
           }`}
         >
@@ -33,7 +33,7 @@ const Pagination = ({ total, page, prevAction, nextAction }) => {
       <button
         disabled={page === total}
         onClick={() => nextAction(page + 1)}
-        class="p-2 text-lg px-4 hover:bg-sky-100  mx-1 text-black disabled:cursor-not-allowed"
+        className="p-2 text-lg px-4 hover:bg-sky-100  mx-1 text-black disabled:cursor-not-allowed"
       >
         Next
       </button>

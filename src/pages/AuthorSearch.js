@@ -16,7 +16,7 @@ const AuthorSearch = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBooks(`${backendApiUrl}/book?author=${slug}&limit=1`));
+    dispatch(getBooks(`${backendApiUrl}/book?author=${slug}`));
     scrollToTop();
   }, [dispatch, slug]);
   return (
@@ -112,14 +112,14 @@ const AuthorSearch = () => {
               prevAction={(prevPage) =>
                 dispatch(
                   getBooks(
-                    `${backendApiUrl}/book?author=${slug}&page=${prevPage}&limit=1`
+                    `${backendApiUrl}/book?author=${slug}&page=${prevPage}`
                   )
                 )
               }
               nextAction={(nextPage) =>
                 dispatch(
                   getBooks(
-                    `${backendApiUrl}/book?author=${slug}&page=${nextPage}&limit=1`
+                    `${backendApiUrl}/book?author=${slug}&page=${nextPage}`
                   )
                 )
               }

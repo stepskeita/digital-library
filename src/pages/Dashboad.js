@@ -15,7 +15,6 @@ const Dashboad = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const history = useHistory();
   let { path, url } = useRouteMatch();
-  console.log(path, url);
 
   useEffect(() => {
     if (!userInfo) history.push("/login");

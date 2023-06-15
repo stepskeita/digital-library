@@ -9,7 +9,7 @@ import {
   searchTextReducer,
   uploadBookReducer,
 } from "./reducers/bookReducer";
-import { loginUserReducer } from "./reducers/userReducer";
+import { loginUserReducer, registerUserReducer } from "./reducers/userReducer";
 
 const middleware = [thunk];
 const initialState = {
@@ -26,6 +26,7 @@ const reducers = combineReducers({
   uploadBook: uploadBookReducer,
   getBooks: getBooksReducer,
   getBook: getBookReducer,
+  userRegister: registerUserReducer,
   userLogin: loginUserReducer,
 });
 const store = createStore(

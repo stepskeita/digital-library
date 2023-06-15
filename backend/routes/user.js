@@ -6,9 +6,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const { sendSingleEmail } = require("../utils/sendEmail");
+const { userProtect, adminProtect } = require("../middlewares/protect");
 // register user
 
-router.post("/register", async (req, res) => {
+router.post("/register", userProtect, adminProtect, async (req, res) => {
   try {
     const password = generator.generate({
       length: 10,

@@ -1,8 +1,9 @@
 const router = require("express").Router();
+const { userProtect, adminProtect } = require("../middlewares/protect");
 const Book = require("../models/Book");
 const path = require("path");
 // create
-router.post("/", (req, res) => {
+router.post("/", userProtect, adminProtect, (req, res) => {
   try {
     const details = JSON.parse(req.body.details);
     const coverImage = req.files.coverImage;
