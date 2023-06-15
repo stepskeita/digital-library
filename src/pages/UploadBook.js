@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../components/layout/Container";
 import FileInput from "../components/dashboard/FileInput";
 import TextInput from "../components/dashboard/TextInput";
 import ArrayInput from "../components/dashboard/ArrayInput";
 import FilePreview from "../components/dashboard/FilePreview";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uploadBook } from "../action/bookAction";
+import CustomTitle from "../components/layout/CustomTitle";
+import SuccessAlert from "../components/layout/CustomAlert";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { UPLOAD_BOOK_RESET } from "../reducers/types/bookTypes";
 
 const UploadBook = () => {
   const [coverImage, setCoverImage] = useState(null);
@@ -18,6 +22,17 @@ const UploadBook = () => {
   const [keywords, setKeywords] = useState([""]);
 
   const dispatch = useDispatch();
+  const { loading, error, book } = useSelector((state) => state.uploadBook);
+  // eslint-disable-next-line
+  const handleResetFields = () => {
+    setCoverImage(null);
+    setBookFile(null);
+    setTitle("");
+    setIsbn("");
+    setDescription("");
+    setCategories([""]);
+    setKeywords([""]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,8 +50,19 @@ const UploadBook = () => {
 
     dispatch(uploadBook(bookDetails));
   };
+
+  useEffect(() => {
+    if (book) {
+      setAuthors([""]);
+    }
+
+    return () => dispatch({ type: UPLOAD_BOOK_RESET });
+  }, [book, dispatch]);
+
   return (
     <div className="">
+      <CustomTitle title="Upload New Book" />
+
       <Container>
         <div className="max-w-xl mx-auto p-6 bg-white/95 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <h2 className="text-2xl font-bold mb-7">Upload new book</h2>
@@ -142,7 +168,22 @@ const UploadBook = () => {
               />
             </div>
 
+            {book && (
+              <SuccessAlert
+                text={
+                  <p>
+                    Book upload <Link to={`/book/${book._id}`}>view it</Link>
+                  </p>
+                }
+                handleClose={() => {
+                  dispatch({ type: UPLOAD_BOOK_RESET });
+                }}
+              />
+            )}
+
+            {error && <div className="bg-red-500 p-2 text-sm">{error}</div>}
             <button
+              disabled={loading}
               type="submit"
               className="bg-sky-600 w-full text-white py-2 hover:bg-sky-500"
             >

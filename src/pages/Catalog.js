@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCatalog } from "../action/bookAction";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import scrollToTop from "../utils/scrollToTop";
+import Masonry from "react-masonry-css";
 
 const Catalog = () => {
   const history = useHistory();
@@ -16,6 +17,11 @@ const Catalog = () => {
     dispatch(getCatalog());
     scrollToTop();
   }, [dispatch]);
+
+  const breakpointColumnsObj = {
+    default: 4, // Number of columns for viewport width >= 1100px
+    900: 3, // Number of columns for viewport width >= 700px
+  };
   return (
     <Container>
       <CustomTitle title="Catalog" />
@@ -31,9 +37,13 @@ const Catalog = () => {
 
       {catalog && Object.keys(catalog).length > 0 ? (
         <div className="bg-white border border-gray-800 p-2">
-          <div className="grid grid-cols-2 xl:grid-cols-3">
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
             {Object.keys(catalog).map((catalogItem) => (
-              <div key={catalogItem} className="mb-4">
+              <div key={catalogItem} className="mb-4 m-3">
                 <p className="font-bold text-xl">{catalogItem}</p>
                 <div className="flex flex-col">
                   {catalog[catalogItem].map((book) => (
@@ -48,7 +58,7 @@ const Catalog = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </Masonry>
         </div>
       ) : (
         <p>No books in the library</p>

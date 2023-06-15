@@ -44,7 +44,7 @@ export const getBooksReducer = (state = {}, action) => {
     case GET_BOOKS_LOADING:
       return { loading: true };
     case GET_BOOKS_SUCCESS:
-      return { books: action.payload };
+      return { ...action.payload };
     case GET_BOOKS_ERROR:
       return {
         error: action.payload,
@@ -93,7 +93,7 @@ export const searchBookReducer = (state = {}, action) => {
     case SEARCH_BOOK_LOADING:
       return { loading: true };
     case SEARCH_BOOK_SUCCESS:
-      return { books: action.payload };
+      return { ...action.payload };
     case SEARCH_BOOK_ERROR:
       return { error: action.payload };
     case SEARCH_BOOK_RESET:

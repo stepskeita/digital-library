@@ -140,10 +140,33 @@ router.get("/", async (req, res) => {
     }
 
     let books;
-    if (req.query.popular) books = await Book.find({}).sort("-views").limit(15);
-    else books = await Book.find({ ...queryParams }).sort("-createdAt");
 
-    res.json({ msg: books });
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 3;
+
+    let total = 1;
+    if (req.query.popular) {
+      books = await Book.find({})
+        .sort("-views")
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+
+      total = await Book.countDocuments({});
+    } else {
+      books = await Book.find({ ...queryParams })
+        .sort("-createdAt")
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      total = await Book.countDocuments({ ...queryParams });
+    }
+
+    res.json({
+      msg: {
+        books,
+        page,
+        total: Math.ceil(total / limit),
+      },
+    });
   } catch (err) {
     console.log(err);
     res

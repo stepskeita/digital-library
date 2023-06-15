@@ -30,6 +30,5 @@ html {
 /* Style your items */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
-  background: grey;
   margin-bottom: 5px;
 }

@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/catalog" component={Catalog} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot-password" component={ForgotPassword} />
-        <Route exact path="/dashboard" component={Dashboad} />
+        <Route path="/dashboard" component={Dashboad} />
 
         <Route exact path="/recently-added" component={RecentlyAdded} />
         <Route exact path="/bookmarks" component={Bookmarks} />

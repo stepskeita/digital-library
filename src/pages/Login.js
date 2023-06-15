@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../action/userAction";
 import LoadingIndicator from "../components/layout/LoadingIndicator";
+import CustomTitle from "../components/layout/CustomTitle";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,6 +22,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen relative">
+      <CustomTitle title="Login" />
       <img
         src="img/library.jpg"
         alt=""
