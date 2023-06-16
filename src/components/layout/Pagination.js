@@ -22,8 +22,8 @@ const Pagination = ({ total, page, prevAction, nextAction }) => {
               ? nextAction(currNum)
               : null
           }
-          className={`p-2 text-lg px-4   mx-1 text-black ${
-            currNum === page && "bg-sky-500 text-white"
+          className={`p-1 px-3 mx-1 text-black hover:bg-sky-100 ${
+            currNum === page && "bg-sky-500 hover:bg-sky-500 text-white"
           }`}
         >
           {currNum}

@@ -4,8 +4,10 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../action/userAction";
-import LoadingIndicator from "../components/layout/LoadingIndicator";
 import CustomTitle from "../components/layout/CustomTitle";
+import Spinner from "../components/loaders/Spinner";
+import ErrorAlert from "../components/layout/ErrorAlert";
+import { LOGIN_USER_ERROR } from "../reducers/types/userTypes";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +34,7 @@ const Login = () => {
         <Container>
           <form
             onSubmit={handleSubmit}
-            class="max-w-md p-6 bg-white/95 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto"
+            className="max-w-md p-6 bg-white/95 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto"
           >
             <div className="w-fit mx-auto mb-7 flex flex-col items-center">
               <Link to="/">
@@ -43,7 +45,10 @@ const Login = () => {
               </div>
             </div>
             {error && (
-              <div className="bg-red-300 p-2 my-2 mb-4 text-black">{error}</div>
+              <ErrorAlert
+                text={error}
+                handleClose={() => dispatch({ type: LOGIN_USER_ERROR })}
+              />
             )}
             {/* email */}
             <div className="mb-3">
@@ -114,9 +119,9 @@ const Login = () => {
             <button
               disabled={loading}
               type="submit"
-              className="bg-sky-600 w-full text-white py-2 hover:bg-sky-500"
+              className="bg-sky-600 w-full text-white py-2 hover:bg-sky-500 disabled:bg-white disabled:text-sky-500 disabled:border disabled:border-sky-500/30"
             >
-              {loading ? <LoadingIndicator message="Loading..." /> : "Sign in"}
+              {loading ? <Spinner /> : "Sign in"}
             </button>
           </form>
         </Container>

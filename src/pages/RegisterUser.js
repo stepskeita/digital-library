@@ -4,8 +4,12 @@ import Container from "../components/layout/Container";
 import TextInput from "../components/dashboard/TextInput";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../action/userAction";
-import SuccessAlert from "../components/layout/CustomAlert";
-import { REGISTER_USER_RESET } from "../reducers/types/userTypes";
+import SuccessAlert from "../components/layout/SuccessAlert";
+import {
+  REGISTER_USER_ERROR,
+  REGISTER_USER_RESET,
+} from "../reducers/types/userTypes";
+import ErrorAlert from "../components/layout/ErrorAlert";
 const RegisterUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +39,10 @@ const RegisterUser = () => {
         <div className="max-w-xl mx-auto p-6 bg-white/95 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <h2 className="text-2xl font-bold mb-7">Register User</h2>
           {error && (
-            <div className="p-2 bg-red-300 text-black my-2">{error}</div>
+            <ErrorAlert
+              text={error}
+              handleClose={() => dispatch({ type: REGISTER_USER_ERROR })}
+            />
           )}
 
           {success && (

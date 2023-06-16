@@ -13,19 +13,24 @@ const modifiedBySchema = new mongoose.Schema(
   }
 );
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  isAdmin: {
-    type: Boolean,
-    default: true,
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: String,
+    password: String,
+    isAdmin: {
+      type: Boolean,
+      default: true,
+    },
+    isPasswordChanged: {
+      type: Boolean,
+      default: true,
+    },
+    modifiedBy: [modifiedBySchema],
   },
-  isPasswordChanged: {
-    type: Boolean,
-    default: true,
-  },
-  modifiesBy: [modifiedBySchema],
-});
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("user", userSchema);

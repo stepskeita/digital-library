@@ -19,26 +19,26 @@ const PopularBooks = () => {
     500: 3, // Number of columns for viewport width >= 500px
   };
 
-  return (
-    <div className="my-10">
-      <h2 className="font-bold text-2xl text-sky-500">Popular Books</h2>
-      <div className="mb-3 h-0.5 bg-sky-500"></div>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p>{error}</p>
-        ) : (
-          books &&
-          books.map((book) => <BookItem key={book.title} book={book} />)
-        )}
-      </Masonry>
-    </div>
-  );
+  return loading
+    ? null
+    : error
+    ? null
+    : books && (
+        <div className="my-10">
+          <h2 className="font-bold text-2xl text-sky-500">Popular Books</h2>
+          <div className="mb-3 h-0.5 bg-sky-500"></div>
+
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {books.map((book) => (
+              <BookItem key={book.title} book={book} />
+            ))}
+          </Masonry>
+        </div>
+      );
 };
 
 export default PopularBooks;

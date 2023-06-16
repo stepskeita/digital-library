@@ -27,7 +27,18 @@ router.post("/register", userProtect, adminProtect, async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const passwordHash = bcrypt.hashSync(password, salt);
 
-    user = await User.create({ name, email, password: passwordHash });
+    user = await User.create({
+      name,
+      email,
+      password: passwordHash,
+      modifiedBy: [
+        {
+          reason: "User creation",
+          user: req.user._id,
+        },
+      ],
+    });
+
     sendSingleEmail({
       email,
       subject: `Your registration credentials`,

@@ -7,9 +7,10 @@ import FilePreview from "../components/dashboard/FilePreview";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadBook } from "../action/bookAction";
 import CustomTitle from "../components/layout/CustomTitle";
-import SuccessAlert from "../components/layout/CustomAlert";
+import SuccessAlert from "../components/layout/SuccessAlert";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { UPLOAD_BOOK_RESET } from "../reducers/types/bookTypes";
+import ErrorAlert from "../components/layout/ErrorAlert";
 
 const UploadBook = () => {
   const [coverImage, setCoverImage] = useState(null);
@@ -181,7 +182,17 @@ const UploadBook = () => {
               />
             )}
 
-            {error && <div className="bg-red-500 p-2 text-sm">{error}</div>}
+            {error && (
+              <ErrorAlert
+                text={error}
+                handleClose={() =>
+                  dispatch({
+                    type: UPLOAD_BOOK_RESET,
+                  })
+                }
+              />
+            )}
+
             <button
               disabled={loading}
               type="submit"

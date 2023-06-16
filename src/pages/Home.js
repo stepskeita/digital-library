@@ -4,14 +4,21 @@ import Container from "../components/layout/Container";
 import PopularBooks from "../components/home/PopularBooks";
 import CustomTitle from "../components/layout/CustomTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_SEARCH_TEXT } from "../reducers/types/bookTypes";
+import {
+  SEARCH_BOOK_RESET,
+  SET_SEARCH_TEXT,
+} from "../reducers/types/bookTypes";
 import BookSearchItem from "../components/home/BookSearchItem";
 import { searchBook } from "../action/bookAction";
 import Pagination from "../components/layout/Pagination";
+import Spinner from "../components/loaders/Spinner";
+import ErrorAlert from "../components/layout/ErrorAlert";
 
 const Home = () => {
   const { searchText } = useSelector((state) => state.searchText);
-  const { books, total, page } = useSelector((state) => state.searchBook);
+  const { loading, error, books, total, page } = useSelector(
+    (state) => state.searchBook
+  );
 
   const dispatch = useDispatch();
 
@@ -47,6 +54,13 @@ const Home = () => {
           </button>
         </form>
       </div>
+      {loading && <Spinner />}
+      {error && (
+        <ErrorAlert
+          text={error}
+          handleClose={() => dispatch({ type: SEARCH_BOOK_RESET })}
+        />
+      )}
       {books && books.length > 0 ? (
         <>
           <div className="bg-white border border-gray-800">
@@ -69,6 +83,7 @@ const Home = () => {
           <p className="p-2">No books found for your search</p>
         )
       )}
+
       <PopularBooks />
     </Container>
   );

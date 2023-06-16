@@ -7,10 +7,15 @@ import { getCatalog } from "../action/bookAction";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import scrollToTop from "../utils/scrollToTop";
 import Masonry from "react-masonry-css";
+import Spinner from "../components/loaders/Spinner";
+import ErrorAlert from "../components/layout/ErrorAlert";
+import { BOOKS_CATALOG_RESET } from "../reducers/types/bookTypes";
 
 const Catalog = () => {
   const history = useHistory();
-  const { catalog } = useSelector((state) => state.booksCatalog);
+  const { catalog, loading, error } = useSelector(
+    (state) => state.booksCatalog
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +40,14 @@ const Catalog = () => {
         | Catalog
       </h2>
 
-      {catalog && Object.keys(catalog).length > 0 ? (
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <ErrorAlert
+          text={error}
+          handleClose={() => dispatch({ type: BOOKS_CATALOG_RESET })}
+        />
+      ) : catalog && Object.keys(catalog).length > 0 ? (
         <div className="bg-white border border-gray-800 p-2">
           <Masonry
             breakpointCols={breakpointColumnsObj}

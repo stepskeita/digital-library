@@ -5,10 +5,13 @@ import PopularBooks from "../components/home/PopularBooks";
 import CustomTitle from "../components/layout/CustomTitle";
 import scrollToTop from "../utils/scrollToTop";
 import { addToBookMarks } from "../utils/utilFunctions";
-import SuccessAlert from "../components/layout/CustomAlert";
+import SuccessAlert from "../components/layout/SuccessAlert";
 import { getBook } from "../action/bookAction";
 import { useDispatch, useSelector } from "react-redux";
 import { backendUrl } from "../constants/url";
+import Spinner from "../components/loaders/Spinner";
+import ErrorAlert from "../components/layout/ErrorAlert";
+import { GET_BOOK_RESET } from "../reducers/types/bookTypes";
 
 const Book = () => {
   const { slug } = useParams();
@@ -41,9 +44,12 @@ const Book = () => {
       </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <Spinner />
       ) : error ? (
-        <p>{error}</p>
+        <ErrorAlert
+          text={error}
+          handleClose={() => dispatch({ type: GET_BOOK_RESET })}
+        />
       ) : (
         book && (
           <div className="flex flex-col lg:flex-row items-stretch">

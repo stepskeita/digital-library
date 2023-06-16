@@ -7,6 +7,9 @@ import { getBooks } from "../action/bookAction";
 import { backendApiUrl, backendUrl } from "../constants/url";
 import scrollToTop from "../utils/scrollToTop";
 import Pagination from "../components/layout/Pagination";
+import Spinner from "../components/loaders/Spinner";
+import ErrorAlert from "../components/layout/ErrorAlert";
+import { GET_BOOKS_RESET } from "../reducers/types/bookTypes";
 
 const AuthorSearch = () => {
   const { slug } = useParams();
@@ -38,9 +41,12 @@ const AuthorSearch = () => {
       </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <Spinner />
       ) : error ? (
-        <p>{error}</p>
+        <ErrorAlert
+          text={error}
+          handleClose={() => dispatch({ type: GET_BOOKS_RESET })}
+        />
       ) : (
         books && (
           <>

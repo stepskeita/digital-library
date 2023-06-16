@@ -31,7 +31,10 @@ router.post("/", userProtect, adminProtect, (req, res) => {
           } else {
             book.bookFile = `books/${bookFile.name}`;
             book.coverImage = `cover-images/${coverImage.name}`;
-
+            book.modifiedBy.push({
+              user: req.user._id,
+              reason: "Upload a new book",
+            });
             book.save();
 
             res.json({ msg: book });
