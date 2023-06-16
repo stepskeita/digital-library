@@ -1,0 +1,291 @@
+[{
+  "_id": {
+    "$oid": "648880279284e89a078c6665"
+  },
+  "title": "1984",
+  "description": "A dystopian novel set in a totalitarian society, exploring themes of government surveillance, manipulation, and the loss of individual freedom.",
+  "isbn": "9780451524935",
+  "authors": [
+    "George Orwell"
+  ],
+  "categories": [
+    "Fiction",
+    "Science Fiction"
+  ],
+  "keywords": [
+    "surveillance",
+    "totalitarianism",
+    "thought control"
+  ],
+  "isDeleted": false,
+  "views": 13,
+  "modifiedBy": [],
+  "bookFile": "books/648880279284e89a078c6665.pdf",
+  "coverImage": "cover-images/648880279284e89a078c6665.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T14:41:43.111Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T10:35:02.556Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "648881ec011fd43be5532062"
+  },
+  "title": "The Catcher in the Rye",
+  "description": "A coming-of-age novel narrated by Holden Caulfield, a disenchanted teenager, as he navigates the challenges of growing up and finding his place in the world.",
+  "isbn": "9780316769174",
+  "authors": [
+    "J.D. Salinger"
+  ],
+  "categories": [
+    "Fiction",
+    "Classic Literature"
+  ],
+  "keywords": [
+    "alienation",
+    "adolescence",
+    "identity"
+  ],
+  "isDeleted": false,
+  "views": 27,
+  "modifiedBy": [],
+  "bookFile": "books/648881ec011fd43be5532062.pdf",
+  "coverImage": "cover-images/648881ec011fd43be5532062.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T14:49:16.488Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T17:59:05.505Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888436011fd43be5532064"
+  },
+  "title": "The Da Vinci Code",
+  "description": "A thriller novel that follows symbologist Robert Langdon as he unravels a series of clues and secrets to solve a mysterious murder and uncover a hidden religious conspiracy.",
+  "isbn": "9780307474278",
+  "authors": [
+    "Dan Brown"
+  ],
+  "categories": [
+    "Fiction",
+    "Mystery"
+  ],
+  "keywords": [
+    "codes",
+    "symbols",
+    "conspiracy"
+  ],
+  "isDeleted": false,
+  "views": 16,
+  "modifiedBy": [],
+  "bookFile": "books/64888436011fd43be5532064.pdf",
+  "coverImage": "cover-images/64888436011fd43be5532064.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T14:59:02.764Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-14T13:07:15.741Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888610011fd43be5532066"
+  },
+  "title": "The Hobbit",
+  "description": "An adventure novel that follows Bilbo Baggins, a hobbit, as he embarks on a quest to reclaim a treasure guarded by a dragon.",
+  "isbn": "9780345339683",
+  "authors": [
+    "J.R.R. Tolkien"
+  ],
+  "categories": [
+    "Fiction",
+    "Fantasy"
+  ],
+  "keywords": [
+    "quest",
+    "epic",
+    "fantasy world"
+  ],
+  "isDeleted": false,
+  "views": 43,
+  "modifiedBy": [],
+  "bookFile": "books/64888610011fd43be5532066.pdf",
+  "coverImage": "cover-images/64888610011fd43be5532066.webp",
+  "createdAt": {
+    "$date": "2023-06-13T15:06:56.860Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-16T06:08:36.725Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888788011fd43be5532068"
+  },
+  "title": "To Kill a Mockingbird",
+  "description": "A Pulitzer Prize-winning novel set in the 1930s, exploring racial injustice and the loss of innocence in a small Southern town.",
+  "isbn": "9780060935467",
+  "authors": [
+    "Harper Lee"
+  ],
+  "categories": [
+    "Fiction",
+    "Classic Literature"
+  ],
+  "keywords": [
+    "racism",
+    "justice",
+    "Southern"
+  ],
+  "isDeleted": false,
+  "views": 9,
+  "modifiedBy": [],
+  "bookFile": "books/64888788011fd43be5532068.pdf",
+  "coverImage": "cover-images/64888788011fd43be5532068.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T15:13:12.616Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T09:15:24.337Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6488897c011fd43be553206a"
+  },
+  "title": "Pride and Prejudice",
+  "description": "A classic novel that follows the lives of the Bennet sisters as they navigate love, marriage, and societal expectations in 19th-century England.",
+  "isbn": "9780141439518",
+  "authors": [
+    "Jane Austen"
+  ],
+  "categories": [
+    "Romance",
+    "Fiction",
+    "Classic Literature"
+  ],
+  "keywords": [
+    "love",
+    "marriage",
+    "social norms"
+  ],
+  "isDeleted": false,
+  "views": 11,
+  "modifiedBy": [],
+  "bookFile": "books/6488897c011fd43be553206a.pdf",
+  "coverImage": "cover-images/6488897c011fd43be553206a.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T15:21:32.138Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T17:27:28.020Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888a8f011fd43be553206c"
+  },
+  "title": "The Lord of the Rings",
+  "description": "An epic fantasy trilogy that chronicles the journey of a group of characters to destroy a powerful ring and defeat the Dark Lord Sauron.",
+  "isbn": "9780544003415",
+  "authors": [
+    "J.R.R. Tolkien"
+  ],
+  "categories": [
+    "Adventure",
+    "Fiction",
+    "Fantasy"
+  ],
+  "keywords": [
+    "epic",
+    "quest",
+    "fantasy world"
+  ],
+  "isDeleted": false,
+  "views": 47,
+  "modifiedBy": [],
+  "bookFile": "books/64888a8f011fd43be553206c.pdf",
+  "coverImage": "cover-images/64888a8f011fd43be553206c.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T15:26:07.797Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-16T06:08:34.316Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888b70011fd43be553206e"
+  },
+  "title": "Harry Potter and the Philosopher's Stone\"",
+  "description": "The first book in the Harry Potter series, where young Harry discovers he is a wizard and enrolls at Hogwarts School of Witchcraft and Wizardry.",
+  "isbn": "9780590353427",
+  "authors": [
+    "J.K. Rowling"
+  ],
+  "categories": [
+    "Fiction",
+    "Fantasy",
+    "Young Adult"
+  ],
+  "keywords": [
+    "magic",
+    "adventure",
+    "friendship"
+  ],
+  "isDeleted": false,
+  "views": 50,
+  "modifiedBy": [],
+  "bookFile": "books/64888b70011fd43be553206e.pdf",
+  "coverImage": "cover-images/64888b70011fd43be553206e.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T15:29:52.676Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-16T05:35:04.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64888e25011fd43be5532070"
+  },
+  "title": "The Hunger Games",
+  "description": "The first book in the dystopian Hunger Games trilogy, following a young girl named Katniss Everdeen as she participates in a brutal televised competition.",
+  "isbn": "9780451524935",
+  "authors": [
+    "Suzanne Collins"
+  ],
+  "categories": [
+    "Fiction",
+    "Young Adult"
+  ],
+  "keywords": [
+    "survival",
+    "oppression",
+    "resistance"
+  ],
+  "isDeleted": false,
+  "views": 20,
+  "modifiedBy": [],
+  "bookFile": "books/64888e25011fd43be5532070.pdf",
+  "coverImage": "cover-images/64888e25011fd43be5532070.jpg",
+  "createdAt": {
+    "$date": "2023-06-13T15:41:25.578Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T09:16:23.812Z"
+  },
+  "__v": 0
+}]

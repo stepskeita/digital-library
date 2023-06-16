@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6489a1c9c518997c6b8a921d"
+  },
+  "name": "Steps Keita",
+  "email": "stepskeita@gmail.com",
+  "password": "$2a$10$4NZxYQgumgQYIHoi2Rq9Z.mUqBVs6kcqgZsEUgSi5Hq/zAa6h8b.W",
+  "isAdmin": true,
+  "isPasswordChanged": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "648b55b86e07ccfb1ad1181b"
+  },
+  "name": "Alieu Keita",
+  "email": "alieukeita201@gmail.com",
+  "password": "$2a$10$ZG8Of/K2S36Hl7whZtpfQOYTO0TzWec6ukiTvZq3oR3jvtKoH1MzS",
+  "isAdmin": true,
+  "isPasswordChanged": true,
+  "modifiedBy": [
+    {
+      "user": {
+        "$oid": "6489a1c9c518997c6b8a921d"
+      },
+      "reason": "User creation",
+      "_id": {
+        "$oid": "648b55b86e07ccfb1ad1181c"
+      },
+      "createdAt": {
+        "$date": "2023-06-15T18:17:28.248Z"
+      },
+      "updatedAt": {
+        "$date": "2023-06-15T18:17:28.248Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-06-15T18:17:28.249Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T18:17:28.249Z"
+  },
+  "__v": 0
+}]
